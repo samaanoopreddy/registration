@@ -1,0 +1,25 @@
+var resultArray = [];
+	var forgotMail = {
+		email: req.body.forgotMail
+	}
+	mongoClient.connect(url,function(err,db){
+		if (err){
+			console.log('Error occured');
+		} else{
+			console.log('Connection established');
+			var cursor = db.collection('users').find(forgotMail);
+			cursor.forEach(function(doc,err){
+				if (err){
+					console.log(err);
+				} else {
+					resultArray.push(doc);
+				}
+			},function(){
+				db.close();
+				res.send(resultArray);
+			})
+			
+			
+		
+		}
+	});
