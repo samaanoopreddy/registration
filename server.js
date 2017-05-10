@@ -125,7 +125,7 @@ app.post('/forgotpassword',function(req,res){
 });
 
 app.listen(3000);
-console.log('Running on port 3000');
+console.log('Running on port 3000 and to see the output type http://localhost:3000/login in the browser');
 
 http.createServer(function(request ,response){
 	response.writeHead(200, {'Content-Type': 'text/plain'});
